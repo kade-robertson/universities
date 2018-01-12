@@ -14,5 +14,11 @@ def search(name = "", country_code = "", country = ""):
     university_json = json.loads(university_data.text)
     return [University(json = data) for data in university_json]
 
+def lucky(name = "", country_code = "", country = ""):
+    attempt = search(name, country_code, country)
+    if len(attempt) > 0:
+        return attempt[0]
+    return None
+
 def get_all():
     return search()
