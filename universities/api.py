@@ -12,7 +12,7 @@ def search(name = "", country_code = "", country = ""):
         if country: parameters["country"] = country
     university_data = requests.get(_endpoint, params = parameters)
     university_json = json.loads(university_data.text)
-    return list(map(University, university_json))
+    return [University(json = data) for data in university_json]
 
 def get_all():
     return search()
