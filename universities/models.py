@@ -1,8 +1,8 @@
 class University():
-    def __init__(self, name, domains, webpages, country_code, stateprov, country):
-        self.name = name
-        self.domains = domains
-        self.webpages = webpages
-        self.country_code = country_code
-        self.stateprov = stateprov
-        self.country = country
+    def __init__(self, json):
+        self.name = json['name']
+        self.domains = json['domains']
+        self.web_pages = json['web_pages']
+        self.country_code = json['alpha_two_code']
+        self.stateprov = json['state-province']
+        self.country = json['country']
