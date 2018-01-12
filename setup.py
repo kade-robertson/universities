@@ -1,7 +1,5 @@
 from setuptools import setup, find_packages
 
-import universities
-
 long_desc = ""
 try:
     import pypandoc
