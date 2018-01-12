@@ -5,6 +5,7 @@ Python package to search for basic university information. This packages obtains
 ## Installation
 
 Your preference should be to use PyPi: `pip install universities`
+
 Source and wheel distributions are available in the releases tab as well.
 
 ## Usage
