@@ -102,3 +102,6 @@ ENV/
 
 # VS Code files
 .vscode/
+
+# README rst for PyPi only
+*.rst

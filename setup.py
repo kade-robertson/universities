@@ -4,12 +4,14 @@ long_desc = ""
 try:
     import pypandoc
     long_desc = pypandoc.convert('README.md', 'rst')
+    with open('README.rst', 'w') as f:
+        f.write(long_desc)
 except(IOError, ImportError):
     long_desc = open('README.md').read()
 
 setup(
     name = "universities",
-    version = "0.1.0",
+    version = "0.1.2",
     description = "Search a large university database for basic information.",
     long_description = long_desc,
     classifiers = [
