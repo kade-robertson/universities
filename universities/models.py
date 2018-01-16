@@ -1,6 +1,19 @@
 class University(object):
+    """University object to hold information on a university."""
 
     def __init__(self, encoding, **kwargs):
+        """
+        Initialize a new University object, through a variety of ways.
+        If a json argument is provided, data will be read from a dict
+        that should be identical in structure to the database's data.
+        Otherwise, the arguments should be named just as the variables
+        are named. If the version is detected as being Python 2, the
+        data is encoded properly to avoid errors.
+
+        :params str encoding: String encoding to use with Python 2
+        :params dict json: Dictionary containing class data.
+        :params str **kwargs: Data to be used if json not provided.
+        """
         if "json" in kwargs.keys():
             json = kwargs.get('json')
             self.name = json['name']
