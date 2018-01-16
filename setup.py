@@ -9,16 +9,18 @@ except(IOError, ImportError):
 
 setup(
     name = "universities",
-    version = "0.1.3",
+    version = "1.0.0",
     description = "Search a large university database for basic information.",
     long_description = long_desc,
     classifiers = [
-        "Development Status :: 4 - Beta",
+        "Development Status :: 5 - Stable",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
         "Natural Language :: English",
         "Programming Language :: Python",
+        "Programming Language :: Python :: 2.6",
+        "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.0",
         "Programming Language :: Python :: 3.1",
@@ -39,5 +41,5 @@ setup(
     install_requires = [
         "requests",
     ],
-    python_requires = '>=3, <4',
+    python_requires = '>=2.6, <4',
 )

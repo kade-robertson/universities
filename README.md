@@ -2,7 +2,7 @@
 
 [![PyPI](https://img.shields.io/pypi/v/universities.svg?style=flat-square)](https://pypi.python.org/pypi/universities)
 
-Python package to search for basic university information. This packages obtains information from [Hipo/university-domains-list](https://github.com/Hipo/university-domains-list)'s database.
+Python package to search for basic university information. This packages obtains information from [Hipo/university-domains-list](https://github.com/Hipo/university-domains-list)'s database. It is fully compatible with Python 2.6 and up.
 
 ## Installation
 
@@ -15,9 +15,11 @@ Source and wheel distributions are available in the releases tab as well.
 ```python
 import universities
 
-canadian = universities.search(country = "Canada") # or .search(country_code = "CA")
-all_data = universities.get_all()
-waterloo = universities.lucky(name = "Waterloo") # As in "I'm feeling lucky"
+uni = universities.API() # can specify encoding for use in Python 2
+
+canadian = uni.search(country = "Canada") # or .search(country_code = "CA")
+all_data = uni.get_all()
+waterloo = uni.lucky(name = "Waterloo") # As in "I'm feeling lucky"
 ```
 
 ## Available Functions
@@ -25,6 +27,8 @@ waterloo = universities.lucky(name = "Waterloo") # As in "I'm feeling lucky"
  - `universities.search` searches the entire database for universities matching the specified critera. You may filter by `name`, `country_code` or `country` as arguments to `search`. This returns a list of `universities.models.University` objects.
  - `universities.lucky` is an alias for `search` which only returns the first result of the search. All the same parameters are available, and a single `universities.models.University` is returned.
  - `universities.get_all` returns all of the entries in the database, in the same format as `search`. In fact, this is simply an alias for `search` that uses no arguments.
+
+ Any query which reurns multiple objects will return a Generator.
 
 ## Models
 
