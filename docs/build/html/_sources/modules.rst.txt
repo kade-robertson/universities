@@ -1,7 +1,0 @@
-universities
-============
-
-.. toctree::
-   :maxdepth: 4
-
-   universities
