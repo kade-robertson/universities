@@ -1,4 +1,5 @@
 class University(object):
+
     def __init__(self, encoding, **kwargs):
         if "json" in kwargs.keys():
             json = kwargs.get('json')
@@ -22,6 +23,7 @@ class University(object):
             if self.stateprov is not None:
                 self.stateprov = self.stateprov.encode(encoding)
             self.country = self.country.encode(encoding)
+
     def __repr__(self):
         out = "{0}.{1}(name={2}, domains={3}, web_pages={4}, " + \
               "country_code={5}, stateprov={6}, country={7})"
@@ -35,6 +37,7 @@ class University(object):
             "'{0}'".format(self.stateprov) if self.stateprov else None,
             "'{0}'".format(self.country) if self.country else None
         )
+
     def __str__(self):
         out = "Name: {0}\n".format(self.name)
         if self.stateprov:
