@@ -1,4 +1,4 @@
 from .models import University
-from .api import get_all, search
+from .api import API
 
-__all__ = ["get_all", "search", "University"]
+__all__ = ["API", "University"]

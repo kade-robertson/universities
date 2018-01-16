@@ -1,5 +1,5 @@
 class University(object):
-    def __init__(self, **kwargs):
+    def __init__(self, encoding, **kwargs):
         if "json" in kwargs.keys():
             json = kwargs.get('json')
             self.name = json['name']
@@ -15,6 +15,13 @@ class University(object):
             self.country_code = kwargs.get('country_code')
             self.stateprov = kwargs.get('stateprov')
             self.country = kwargs.get('country')
+        import sys
+        if sys.version_info[0] == 2:
+            self.name = self.name.encode(encoding)
+            self.country_code = self.country_code.encode(encoding)
+            if self.stateprov is not None:
+                self.stateprov = self.stateprov.encode(encoding)
+            self.country = self.country.encode(encoding)
     def __repr__(self):
         out = "{0}.{1}(name={2}, domains={3}, web_pages={4}, " + \
               "country_code={5}, stateprov={6}, country={7})"
