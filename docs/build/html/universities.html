@@ -1,0 +1,265 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>universities package &#8212; universities 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="universities-package">
+<h1>universities package<a class="headerlink" href="#universities-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-universities.api">
+<span id="universities-api-module"></span><h2>universities.api module<a class="headerlink" href="#module-universities.api" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="universities.api.API">
+<em class="property">class </em><code class="descclassname">universities.api.</code><code class="descname">API</code><span class="sig-paren">(</span><em>encoding='utf-8'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/universities/api.html#API"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#universities.api.API" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>API object for making requests to the university database.</p>
+<dl class="attribute">
+<dt id="universities.api.API.endpoint">
+<code class="descname">endpoint</code><em class="property"> = 'http://universities.hipolabs.com/search'</em><a class="headerlink" href="#universities.api.API.endpoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="universities.api.API.get_all">
+<code class="descname">get_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/universities/api.html#API.get_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#universities.api.API.get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a generator containing all university data. This is
+simply a wrapper on search() which does not do any filtering.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">generator of models.University objects</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="universities.api.API.lucky">
+<code class="descname">lucky</code><span class="sig-paren">(</span><em>name=''</em>, <em>country_code=''</em>, <em>country=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/universities/api.html#API.lucky"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#universities.api.API.lucky" title="Permalink to this definition">¶</a></dt>
+<dd><p>Search for a university in the database, and only return the
+first result. This is simply a wrapper on search() that takes
+the resulting generator and returns the first element if it
+exists. Each available option can be used to narrow down search
+results.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>str</em>) – The name of the university.</li>
+<li><strong>country_code</strong> (<em>str</em>) – An ISO-3166 2-letter country code.</li>
+<li><strong>country</strong> (<em>str</em>) – The country of the university.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">A models.University object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="universities.api.API.search">
+<code class="descname">search</code><span class="sig-paren">(</span><em>name=''</em>, <em>country_code=''</em>, <em>country=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/universities/api.html#API.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#universities.api.API.search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Search for a university in the database. Each available option
+can be used to narrow down saerch results.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>str</em>) – The name of the university.</li>
+<li><strong>country_code</strong> (<em>str</em>) – An ISO-3166 2-letter country code.</li>
+<li><strong>country</strong> (<em>str</em>) – The country of the university.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">generator of models.University objects</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-universities.models">
+<span id="universities-models-module"></span><h2>universities.models module<a class="headerlink" href="#module-universities.models" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="universities.models.University">
+<em class="property">class </em><code class="descclassname">universities.models.</code><code class="descname">University</code><span class="sig-paren">(</span><em>encoding</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/universities/models.html#University"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#universities.models.University" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>University object to hold information on a university.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-universities">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-universities" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="universities.API">
+<em class="property">class </em><code class="descclassname">universities.</code><code class="descname">API</code><span class="sig-paren">(</span><em>encoding='utf-8'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/universities/api.html#API"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#universities.API" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>API object for making requests to the university database.</p>
+<dl class="attribute">
+<dt id="universities.API.endpoint">
+<code class="descname">endpoint</code><em class="property"> = 'http://universities.hipolabs.com/search'</em><a class="headerlink" href="#universities.API.endpoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="universities.API.get_all">
+<code class="descname">get_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/universities/api.html#API.get_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#universities.API.get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a generator containing all university data. This is
+simply a wrapper on search() which does not do any filtering.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">generator of models.University objects</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="universities.API.lucky">
+<code class="descname">lucky</code><span class="sig-paren">(</span><em>name=''</em>, <em>country_code=''</em>, <em>country=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/universities/api.html#API.lucky"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#universities.API.lucky" title="Permalink to this definition">¶</a></dt>
+<dd><p>Search for a university in the database, and only return the
+first result. This is simply a wrapper on search() that takes
+the resulting generator and returns the first element if it
+exists. Each available option can be used to narrow down search
+results.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>str</em>) – The name of the university.</li>
+<li><strong>country_code</strong> (<em>str</em>) – An ISO-3166 2-letter country code.</li>
+<li><strong>country</strong> (<em>str</em>) – The country of the university.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">A models.University object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="universities.API.search">
+<code class="descname">search</code><span class="sig-paren">(</span><em>name=''</em>, <em>country_code=''</em>, <em>country=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/universities/api.html#API.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#universities.API.search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Search for a university in the database. Each available option
+can be used to narrow down saerch results.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>str</em>) – The name of the university.</li>
+<li><strong>country_code</strong> (<em>str</em>) – An ISO-3166 2-letter country code.</li>
+<li><strong>country</strong> (<em>str</em>) – The country of the university.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">generator of models.University objects</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="universities.University">
+<em class="property">class </em><code class="descclassname">universities.</code><code class="descname">University</code><span class="sig-paren">(</span><em>encoding</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/universities/models.html#University"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#universities.University" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>University object to hold information on a university.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Kade Robertson.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/universities.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

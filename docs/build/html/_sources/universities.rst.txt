@@ -1,0 +1,30 @@
+universities package
+====================
+
+Submodules
+----------
+
+universities\.api module
+------------------------
+
+.. automodule:: universities.api
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+universities\.models module
+---------------------------
+
+.. automodule:: universities.models
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: universities
+    :members:
+    :undoc-members:
+    :show-inheritance:
