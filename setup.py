@@ -11,7 +11,7 @@ except(IOError, ImportError):
 
 setup(
     name = "universities",
-    version = "0.1.2",
+    version = "0.1.2a2",
     description = "Search a large university database for basic information.",
     long_description = long_desc,
     classifiers = [
