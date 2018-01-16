@@ -13,7 +13,7 @@ setup(
     description = "Search a large university database for basic information.",
     long_description = long_desc,
     classifiers = [
-        "Development Status :: 5 - Stable",
+        "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
