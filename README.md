@@ -1,5 +1,7 @@
 # universities
 
+[![PyPI](https://img.shields.io/pypi/v/universities.svg?style=flat-square)](https://pypi.python.org/pypi/universities)
+
 Python package to search for basic university information. This packages obtains information from [Hipo/university-domains-list](https://github.com/Hipo/university-domains-list)'s database.
 
 ## Installation
@@ -10,7 +12,7 @@ Source and wheel distributions are available in the releases tab as well.
 
 ## Usage
 
-```
+```python
 import universities
 
 canadian = universities.search(country = "Canada") # or .search(country_code = "CA")

@@ -3,15 +3,13 @@ from setuptools import setup, find_packages
 long_desc = ""
 try:
     import pypandoc
-    long_desc = pypandoc.convert('README.md', 'rst')
-    with open('README.rst', 'w') as f:
-        f.write(long_desc)
+    long_desc = pypandoc.convert('README.md', 'rst', extra_args = ('--eol', 'lf'))
 except(IOError, ImportError):
     long_desc = open('README.md').read()
 
 setup(
     name = "universities",
-    version = "0.1.2a2",
+    version = "0.1.3",
     description = "Search a large university database for basic information.",
     long_description = long_desc,
     classifiers = [
