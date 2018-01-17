@@ -1,7 +1,12 @@
 import json
 import requests
+import warnings
 from .models import University
 
+def _deprecated(msg):
+    warnings.simplefilter('always')
+    warnings.warn(msg, category=DeprecationWarning, stacklevel=2)
+    warnings.simplefilter('default')
 
 class API(object):
     """API object for making requests to the university database."""
@@ -17,21 +22,25 @@ class API(object):
         """
         self.encoding = encoding
 
-    def search(self, name="", country_code="", country=""):
+    def search(self, name="", domain="", country_code="", country=""):
         """
         Search for a university in the database. Each available option
         can be used to narrow down saerch results.
 
         :param str name: The name of the university.
-        :param str country_code: An ISO-3166 2-letter country code.
+        :param str domain: The domain the university uses.
+        :param str country_code: DEPRECATED, DOES NOTHING
         :param str country: The country of the university.
         :rtype: generator of models.University objects
         """
         parameters = dict()
-        if any([name, country_code, country]):
+        if any([name, domain, country_code, country]):
             if name:
                 parameters["name"] = name
+            if name:
+                parameters["domain"] = domain
             if country_code:
+                _deprecated("Country code filters have no function.")
                 parameters["alpha_two_code"] = country_code
             if country:
                 parameters["country"] = country
@@ -40,7 +49,7 @@ class API(object):
         for data in university_json:
             yield University(self.encoding, json=data)
 
-    def lucky(self, name="", country_code="", country=""):
+    def lucky(self, name="", domain="", country_code="", country=""):
         """
         Search for a university in the database, and only return the
         first result. This is simply a wrapper on search() that takes
@@ -49,11 +58,12 @@ class API(object):
         results.
 
         :param str name: The name of the university.
-        :param str country_code: An ISO-3166 2-letter country code.
+        :param str domain: The domain the university uses.
+        :param str country_code: DEPRECATED, DOES NOTHING
         :param str country: The country of the university.
         :rtype: A models.University object
         """
-        attempt = self.search(name, country_code, country)
+        attempt = self.search(name, domain, country_code, country)
         try:
             return next(attempt)
         except StopIteration:
