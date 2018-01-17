@@ -17,14 +17,15 @@ import universities
 
 uni = universities.API() # can specify encoding for use in Python 2
 
-canadian = uni.search(country = "Canada") # or .search(country_code = "CA")
+canadian = uni.search(country = "Canada")
+only_mit = uni.search(domain = "mit.edu")
 all_data = uni.get_all()
 waterloo = uni.lucky(name = "Waterloo") # As in "I'm feeling lucky"
 ```
 
 ## Available Functions
 
- - `universities.search` searches the entire database for universities matching the specified critera. You may filter by `name`, `country_code` or `country` as arguments to `search`. This returns a list of `universities.models.University` objects.
+ - `universities.search` searches the entire database for universities matching the specified critera. You may filter by `name`, `domain` or `country` as arguments to `search`. This returns a list of `universities.models.University` objects.
  - `universities.lucky` is an alias for `search` which only returns the first result of the search. All the same parameters are available, and a single `universities.models.University` is returned.
  - `universities.get_all` returns all of the entries in the database, in the same format as `search`. In fact, this is simply an alias for `search` that uses no arguments.
 
@@ -50,3 +51,5 @@ The only requirement is `requests`.
 2. `cd` to the directory and install the requirements if necessary: `pip install -r requirements.txt`
 3. Edit to your heart's content!
 4. If you wish to contribute, push your changes to GitHub on your own fork and make a pull request.
+
+Note: Any contributions should be made following the PEP8 standard.

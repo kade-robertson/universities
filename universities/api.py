@@ -3,10 +3,12 @@ import requests
 import warnings
 from .models import University
 
+
 def _deprecated(msg):
     warnings.simplefilter('always')
     warnings.warn(msg, category=DeprecationWarning, stacklevel=2)
     warnings.simplefilter('default')
+
 
 class API(object):
     """API object for making requests to the university database."""
@@ -40,7 +42,7 @@ class API(object):
             if name:
                 parameters["domain"] = domain
             if country_code:
-                _deprecated("Country code filters have no function.")
+                _deprecated("Country code filters have no function for now.")
                 parameters["alpha_two_code"] = country_code
             if country:
                 parameters["country"] = country
@@ -68,7 +70,6 @@ class API(object):
             return next(attempt)
         except StopIteration:
             return None
-        return None
 
     def get_all(self):
         """
