@@ -23,6 +23,7 @@ class API(object):
         :param str encoding: encoding to use when using Python 2
         """
         self.encoding = encoding
+        self.session = requests.Session()
 
     def search(self, name="", domain="", country_code="", country=""):
         """
@@ -46,9 +47,11 @@ class API(object):
                 parameters["alpha_two_code"] = country_code
             if country:
                 parameters["country"] = country
-        university_data = requests.get(self.endpoint, params=parameters)
-        university_json = json.loads(university_data.text)
-        for data in university_json:
+        university_data = self.session.get(
+            self.endpoint,
+            params=parameters
+        ).json()
+        for data in university_data:
             yield University(self.encoding, json=data)
 
     def lucky(self, name="", domain="", country_code="", country=""):
