@@ -82,3 +82,6 @@ class API(object):
         :rtype: generator of models.University objects
         """
         return self.search()
+
+    def __del__(self):
+        self.session.close()
