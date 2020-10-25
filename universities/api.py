@@ -40,7 +40,7 @@ class API(object):
         if any([name, domain, country_code, country]):
             if name:
                 parameters["name"] = name
-            if name:
+            if domain:
                 parameters["domain"] = domain
             if country_code:
                 _deprecated("Country code filters have no function for now.")
